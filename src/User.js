@@ -49,10 +49,10 @@ class User {
    }
 
    getUserOnlineTime() {
-      return this.formatDurationTime(Date.now() - this.loginTime);
+      return User.formatDurationTime(Date.now() - this.loginTime);
    }
 
-   formatDurationTime(durationTime) {
+   static formatDurationTime(durationTime) {
       let days = durationTime / 1000 / 60 / 60 / 24;
       let daysRound = Math.floor(days);
       let hours = durationTime / 1000 / 60 / 60 - (24 * daysRound);
