@@ -11,9 +11,11 @@ const History = require("./History");
 const Popular = require("./Popular");
 
 const User = require("./User");
+
 class ChatServer {
     constructor() {
         this.userSet = new Set();
+
         this.userNameMap = new Map();
     
         this.history = new History(Config.historyMaxLen);
@@ -23,6 +25,7 @@ class ChatServer {
         this.popular = new Popular(Config.popularTimeLimit);
 
         this.httpServer = new http.Server();
+        
         this.wsServer = new ws.Server({ server: this.httpServer });
      }
 

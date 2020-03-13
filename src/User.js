@@ -1,3 +1,6 @@
+
+const uuid = require('node-uuid');
+
 class User {
    constructor(server, socket) {
       this.server = server;
@@ -17,8 +20,19 @@ class User {
       try {
          const msg = JSON.parse(event.data);
          if (msg.name) {
-            this.name = msg.name;
+            if(this.name) {
+               this.sendMsg(`user already login.`);
+               return;
+            }
+            
             this.loginTime = Date.now();
+
+            // user name repeat
+            if(this.server.userNameMap.has(msg.name)) {
+               this.name = msg.name + uuid.v4();
+            } else {
+               this.name = msg.name;
+            }
 
             console.log(`user ${this.name} login in ${this.loginTime}.`);
 

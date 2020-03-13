@@ -34,4 +34,5 @@
 ## NPM packages
     mocha 测试框架
     chai 测试框架
-    ttl-mem-cache 热点数据存储.
+    ttl-mem-cache 热点数据存储
+    node-uuid 用户名重复处理

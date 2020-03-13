@@ -36,3 +36,4 @@
     mocha for testing framework.
     chai  for testing framework.
     ttl-mem-cache for popular storage.
+    Node-uuid for user name repeated.
