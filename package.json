@@ -1,14 +1,29 @@
 {
-  "name": "cli",
+  "name": "chat_server",
   "version": "1.0.0",
-  "description": "cli",
-  "main": "index.js",
+  "description": "A simple chat server.",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha",
+    "start": "node src/index.js"
   },
-  "author": "Theodore",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kaydenlei1985/cc-be-chat-test.git"
+  },
+  "keywords": [
+    "chat",
+    "server",
+    "websocket"
+  ],
+  "author": "kaydenlei",
   "license": "ISC",
   "dependencies": {
-    "inquirer": "^6.2.0"
+    "ttl-mem-cache": "^4.1.0",
+    "ws": "^7.2.3"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^7.1.0"
   }
 }
