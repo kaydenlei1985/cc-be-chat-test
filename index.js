@@ -1,11 +1,33 @@
 const inquirer = require('inquirer');
+const WebSocket = require('ws');  
+
+const wsclient = new WebSocket("ws://127.0.0.1:8080");
+
+wsclient.on('message', function incoming(data) {
+  console.log(data+'\n');
+});
 
 const run = async () => {
-  const { name } = await askName();
-  while (true) {
-    const answers = await askChat();
-    const { message } = answers;
-    console.log(`${name}: `, message);
+  let name = "";
+  while ("" === name){
+
+    // register
+    const { name } = await askName();
+    if ("" === name){
+      continue;
+    }
+    wsclient.send(JSON.stringify({name: name}));
+
+    // send message
+    while (true) {
+      const answers = await askChat();
+      const { message } = answers;
+      if ("" === message){
+        continue;
+      }
+
+      wsclient.send(JSON.stringify({data:message}));
+    }
   }
 };
 

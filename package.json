@@ -19,6 +19,7 @@
   "author": "kaydenlei",
   "license": "ISC",
   "dependencies": {
+    "inquirer": "^7.1.0",
     "node-uuid": "^1.4.8",
     "ttl-mem-cache": "^4.1.0",
     "ws": "^7.2.3"
